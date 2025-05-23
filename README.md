@@ -1,413 +1,205 @@
-# 公众号封面设计工具 & Notion MCP 集成 & 超级个体周刊
+# Notion Weekly Generator
 
-## 项目简介
-这是一个多功能工具集，包含：
-1. 公众号封面组合图生成工具
-2. Notion MCP (Model Context Protocol) 集成
-3. 数据库管理和自动化工具
-4. **超级个体周刊自动生成系统**
+> 基于 Notion MCP API 的智能周刊生成系统
 
-## 功能特点
+一个自动化的内容策展和周刊生成工具，专为"超级个体周刊"设计。通过 Notion 数据库管理文章，使用 AI 智能分类，自动生成人性化的周刊内容。
 
-### 🎨 封面设计工具
-- **现代设计风格**：采用材料设计语言，视觉效果专业美观
-- **双封面组合**：同时生成公众号主封面(2.35:1)和朋友圈封面(1:1)
-- **一键下载**：支持直接下载为高清PNG图片
-- **标准比例**：严格按照3.35:1的总体比例设计
-- **响应式设计**：适配不同屏幕尺寸
+## ✨ 功能特性
 
-### 🔗 Notion MCP 集成
-- **智能数据库操作**：通过 AI 直接操作 Notion 数据库
-- **文章管理**：自动查询、添加、更新文章信息
-- **配置管理**：安全存储 API 密钥和数据库配置
-- **快速访问**：通过别名快速访问常用数据库
+### 🤖 智能内容管理
+- **Notion MCP 集成**：直接连接 Notion 数据库，实时同步文章数据
+- **AI 智能分类**：基于关键词和语义分析自动分类文章
+- **状态管理**：支持文章的完整生命周期管理（草稿→已归档→已发布）
 
-### 📰 超级个体周刊系统
-- **智能内容分类**：基于关键词和语义分析自动分类文章
-- **六大核心模块**：AI前沿动态、AI工具推荐、产品力提升、运营增长、设计赏析、个体洞察
-- **自动化生成**：从 Notion 数据库提取内容，自动生成周刊
-- **人性化表达**：保持流畅的人工编辑风格
-- **付费订阅模式**：完整的商业化方案设计
+### 📰 周刊生成
+- **自动化生成**：一键生成完整的周刊内容
+- **人性化写作**：自然流畅的表达，避免机械化模板
+- **多模块支持**：
+  - 🤖 AI前沿动态
+  - 🛠️ 本周AI工具
+  - 🚀 产品力提升
+  - 📈 运营&增长
+  - 🎨 优秀设计赏析
+  - 💡 超级个体洞察
 
-## 已完成的设计
+### 🔗 格式支持
+- **Markdown 链接**：完美支持 `[文本](URL)` 格式
+- **富文本格式**：粗体、斜体、引用等格式
+- **Notion 块转换**：自动转换为 Notion 原生格式
 
-### 多邻国用户增长封面 (`duolingo_growth_cover.html`)
-- **主题**：多邻国如何重燃用户增长
-- **朋友圈封面**：产品增长
-- **设计风格**：现代材料设计，绿色渐变背景
-- **特色元素**：
-  - 玻璃拟态效果
-  - 渐变文字
-  - 装饰性标签
-  - 微妙的动画效果
+### 🎨 封面设计
+- **多邻国主题封面**：现代材料设计风格
+- **双格式输出**：主封面(2.35:1) + 朋友圈封面(1:1)
+- **一键下载**：集成 html2canvas 实现高质量图片导出
 
-### 超级个体周刊 PRD (`超级个体周刊PRD.md`)
-- **产品定位**：付费订阅周刊，帮助个人成长为超级个体
-- **目标用户**：创业者、产品经理、技术从业者、知识工作者
-- **商业模式**：月度/年度订阅 + 增值服务
-- **技术方案**：基于 Notion + AI 的自动化内容生成
+## 🚀 快速开始
 
-## Notion MCP 配置
-
-### 当前配置状态
-- ✅ **MCP 服务器已配置**：`.cursor/mcp.json`
-- ✅ **API Token 已设置**：`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`
-- ✅ **默认数据库已连接**：`1fc64cadd8218098a203dee0ac6a17fc`
-
-### 数据库信息
-- **数据库名称**：文章数据库
-- **数据库 ID**：`1fc64cadd8218098a203dee0ac6a17fc`
-- **包含字段**：
-  - 标题 (title)
-  - 分类（人工）(multi_select)
-  - 重要度 (select)
-  - 总结（AI 摘要）(rich_text)
-  - 添加日期 (date)
-  - 笔记 (rich_text)
-  - URL (url)
-  - 状态 (select)
-
-### 快速使用
-```python
-# 获取默认数据库 ID
-from notion_helper import get_default_database_id
-db_id = get_default_database_id()
-
-# 获取 API Token
-from notion_helper import get_api_token
-token = get_api_token()
-```
-
-## 使用方法
-
-### 封面设计工具
-1. 用浏览器打开对应的HTML文件
-2. 查看封面效果
-3. 点击"下载封面图片"按钮保存图片
-4. 图片会自动保存到下载文件夹
-
-### Notion 数据库管理
-1. 运行数据库助手：`python notion_helper.py`
-2. 通过菜单选择操作：
-   - 查看所有数据库
-   - 获取数据库 ID
-   - 添加新数据库
-3. 或在代码中直接调用便捷函数
-
-### 超级个体周刊生成
-1. 运行周刊生成器：`python weekly_generator.py`
-2. 选择操作：
-   - 生成本周周刊
-   - 生成指定周期周刊
-   - 预览分类效果
-3. 自动保存为 Markdown 文件
-
-### AI 操作示例
-配置完成后，你可以直接对 AI 说：
-- "查看我数据库中的所有文章"
-- "将这篇文章添加到我的 Notion 数据库"
-- "帮我更新某篇文章的状态"
-- "从数据库中找出所有高重要度的文章"
-- "生成本周的超级个体周刊"
-
-## 超级个体周刊分类体系
-
-### 🤖 AI前沿动态
-- 大模型最新进展
-- Agent 技术突破
-- AI 应用案例分析
-- 行业影响解读
-
-### 🛠️ 本周AI工具
-- 新发布的 AI 产品
-- 实用工具测评
-- 使用技巧分享
-- 效率提升案例
-
-### 🚀 产品力提升
-- 产品思维与方法论
-- 用户研究与需求分析
-- 产品设计最佳实践
-- 数据驱动的产品决策
-
-### 📈 运营&增长
-- 增长黑客技巧
-- 用户获取与留存策略
-- 社群运营方法
-- 营销案例分析
-
-### 🎨 优秀设计赏析
-- UI/UX 设计趋势
-- 品牌视觉案例
-- 交互设计创新
-- 设计工具推荐
-
-### 💡 超级个体洞察
-- 个人品牌建设
-- 技能组合策略
-- 时间管理方法
-- 认知升级思考
-
-## 技术实现
-
-### 前端技术
-- **框架**：纯HTML + Tailwind CSS
-- **字体**：Google Fonts (Inter + Noto Sans SC)
-- **图片生成**：html2canvas库
-- **设计原则**：材料设计 + 玻璃拟态
-
-### Notion 集成
-- **协议**：Model Context Protocol (MCP)
-- **服务器**：@notionhq/notion-mcp-server
-- **配置管理**：JSON 配置文件
-- **安全性**：本地存储 API 密钥
-
-### 周刊生成系统
-- **内容分类**：基于关键词匹配和语义分析
-- **模板引擎**：Python 字符串模板
-- **自动化流程**：定时任务 + AI 辅助编辑
-- **输出格式**：Markdown + HTML
-
-## 文件结构
-```
-├── README.md                    # 项目说明文档
-├── duolingo_growth_cover.html   # 多邻国增长主题封面
-├── 超级个体周刊PRD.md           # 周刊产品需求文档
-├── .cursor/
-│   └── mcp.json                 # Cursor MCP 配置
-├── notion_config.json           # Notion 数据库配置
-├── notion_helper.py             # Notion 操作助手
-├── weekly_generator.py          # 周刊自动生成器
-├── setup_notion_mcp.py          # MCP 自动配置脚本
-└── notion_mcp_setup.md          # MCP 配置指南
-```
-
-## 商业化方案
-
-### 超级个体周刊订阅模式
-- **月度订阅**：¥29/月
-- **年度订阅**：¥299/年（8.5折优惠）
-- **终身会员**：¥999（限时优惠）
-
-### 增值服务
-- **专属社群**：订阅者专享交流群
-- **月度直播**：每月深度分享
-- **一对一咨询**：高级会员专享
-- **线下活动**：定期组织聚会
-
-### 收入预期
-- **目标用户**：1000名付费订阅者
-- **年收入预期**：30-40万元
-
-## 安全提醒
-- 🔒 **保护 API Token**：不要在公共场所分享或提交到代码仓库
-- 🔐 **最小权限原则**：只给集成访问必要的页面和数据库
-- 🔄 **定期更新 Token**：如有安全疑虑，及时重新生成 token
-- 📁 **配置文件安全**：`notion_config.json` 包含敏感信息，请妥善保管
-
-## 故障排除
-
-### MCP 连接问题
-1. 检查 `.cursor/mcp.json` 配置是否正确
-2. 确认 API Token 有效性
-3. 重启 Cursor 应用
-4. 检查网络连接
-
-### 数据库访问问题
-1. 确认数据库 ID 正确
-2. 检查 Notion 集成权限
-3. 验证数据库是否已连接到集成
-
-### 周刊生成问题
-1. 确认 Notion 数据库中有足够的文章
-2. 检查文章状态和时间筛选条件
-3. 验证分类关键词匹配逻辑
-
-## 更新日志
-- **2025-05-23**: 
-  - ✅ 配置 Notion MCP 集成
-  - ✅ 创建数据库配置管理
-  - ✅ 添加便捷操作工具
-  - ✅ 成功连接文章数据库 (3篇文章)
-  - ✅ 完成超级个体周刊 PRD 设计
-  - ✅ 开发周刊自动生成系统
-  - ✅ 实现智能内容分类算法 
-
-# RSS 项目工具集
-
-这是一个多功能工具集，包含公众号封面设计、Notion MCP集成、数据库管理和超级个体周刊自动生成系统。
-
-## 🚀 主要功能
-
-### 1. 公众号封面设计工具
-- **文件**: `duolingo_growth_cover.html`
-- **功能**: 创建专业的公众号封面和朋友圈封面
-- **特色**: 
-  - 支持2.35:1比例的公众号封面
-  - 支持1:1比例的朋友圈封面
-  - 高清下载功能（3倍分辨率）
-  - 现代材料设计风格
-
-### 2. Notion MCP 集成
-- **配置文件**: `.cursor/mcp.json`
-- **辅助工具**: `notion_helper.py`
-- **功能**: 
-  - 连接 Notion 数据库
-  - 查询和管理文章数据
-  - 支持复杂的数据库操作
-
-### 3. 超级个体周刊系统 ⭐
-- **PRD文档**: `超级个体周刊PRD.md`
-- **生成器**: `weekly_generator.py`
-- **定时调度器**: `weekly_scheduler.py` 🆕
-- **查询助手**: `notion_query_helper.py` 🆕
-
-#### 周刊系统特色功能：
-- 🤖 **智能分类**: 基于关键词和语义分析自动分类文章
-- 📅 **定时生成**: 每周日自动生成周刊
-- 🎯 **六大模块**: AI前沿动态、本周AI工具、产品力提升、运营&增长、优秀设计赏析、超级个体洞察
-- 📝 **人性化内容**: 去AI化的自然表达，避免检测
-- 🔄 **自动化流程**: 从数据获取到内容生成的全自动化
-
-## 📦 安装依赖
+### 1. 环境准备
 
 ```bash
+# 克隆项目
+git clone https://github.com/xingyan-ai/notion-weekly-generator.git
+cd notion-weekly-generator
+
+# 安装依赖
 pip install -r requirements.txt
 ```
 
-## 🛠️ 使用指南
+### 2. 配置 Notion
 
-### 启动定时调度器
-
+1. 复制配置文件模板：
 ```bash
-python weekly_scheduler.py
+cp notion_config.example.json notion_config.json
 ```
 
-#### 调度器功能菜单：
-1. **立即测试生成周刊** - 测试周刊生成功能
-2. **预览本周文章** - 查看本周已归档的文章
-3. **启动定时调度** - 每周日09:00自动生成周刊
-4. **查看调度状态** - 查看当前活跃的定时任务
-5. **停止并退出** - 退出程序
+2. 获取 Notion API Token：
+   - 访问 [Notion Developers](https://developers.notion.com/)
+   - 创建新的集成
+   - 复制 API Token
 
-### 手动生成周刊
+3. 配置数据库：
+   - 在 Notion 中创建文章管理数据库
+   - 在 Notion 中创建周刊发布数据库
+   - 将数据库 ID 填入配置文件
+
+### 3. 配置 MCP (可选)
+
+如果使用 Cursor 编辑器：
 
 ```bash
+# 运行 MCP 配置脚本
+python setup_notion_mcp.py
+```
+
+### 4. 开始使用
+
+```bash
+# 生成周刊
 python weekly_generator.py
-```
 
-### 测试 Notion 查询
+# 生成并发布到 Notion
+python generate_and_publish.py
 
-```bash
-python notion_query_helper.py
+# 测试链接解析
+python test_link_parsing.py
 ```
 
 ## 📁 项目结构
 
 ```
-├── README.md                    # 项目说明文档
-├── requirements.txt             # Python依赖包
-├── .gitignore                  # Git忽略文件
-├── 
-├── # 封面设计工具
-├── duolingo_growth_cover.html   # 公众号封面设计器
-├── 
-├── # Notion 集成
-├── .cursor/mcp.json            # MCP配置文件
-├── notion_config.json          # Notion配置（本地）
-├── notion_helper.py            # Notion操作辅助工具
-├── notion_query_helper.py      # Notion查询专用工具 🆕
-├── 
-├── # 周刊系统
-├── 超级个体周刊PRD.md           # 产品需求文档
-├── weekly_generator.py         # 周刊内容生成器
-├── weekly_scheduler.py         # 定时调度器 🆕
-├── 周刊01.md                   # 示例周刊
-├── 
-└── # 日志文件
-    └── weekly_scheduler.log     # 调度器日志
+notion-weekly-generator/
+├── README.md                          # 项目说明
+├── requirements.txt                   # Python 依赖
+├── .gitignore                         # Git 忽略文件
+├── notion_config.example.json         # 配置文件模板
+│
+├── 核心功能/
+│   ├── weekly_generator.py            # 周刊生成器
+│   ├── weekly_publisher_mcp.py        # MCP 发布器
+│   ├── generate_and_publish.py        # 一键生成发布
+│   └── notion_query_helper.py         # Notion 查询助手
+│
+├── 工具脚本/
+│   ├── setup_notion_mcp.py           # MCP 配置脚本
+│   ├── test_link_parsing.py          # 链接解析测试
+│   └── weekly_scheduler.py           # 定时任务
+│
+├── 设计工具/
+│   └── duolingo_growth_cover.html    # 封面设计工具
+│
+├── 文档/
+│   ├── 超级个体周刊PRD.md            # 产品需求文档
+│   └── 周刊01.md                     # 示例周刊
+│
+└── 配置/
+    └── .cursor/                      # Cursor 编辑器配置
+        ├── mcp.json                  # MCP 服务器配置
+        └── rules/                    # 自定义规则
 ```
 
-## ⚙️ 配置说明
+## 🔧 配置说明
 
-### Notion 配置
-1. 获取 Notion API Token
-2. 配置数据库ID：`1fc64cadd8218098a203dee0ac6a17fc`
-3. 确保数据库包含以下字段：
-   - 标题 (Title)
-   - 总结（AI 摘要）(Rich Text)
-   - URL (URL)
-   - 分类（人工）(Multi-select)
-   - 重要度 (Select)
-   - 状态 (Select)
-   - 添加日期 (Date)
+### Notion 数据库结构
 
-### 定时调度配置
-- **默认时间**: 每周日 09:00
-- **日志文件**: `weekly_scheduler.log`
-- **输出格式**: `超级个体周刊_第XX期_YYYYMMDD.md`
+#### 文章数据库字段：
+- **标题** (title): 文章标题
+- **分类（人工）** (multi_select): 手动分类标签
+- **重要度** (select): 高/中/低
+- **总结（AI 摘要）** (rich_text): AI 生成的摘要
+- **添加日期** (date): 文章添加时间
+- **URL** (url): 原文链接
+- **状态** (select): 草稿/已归档/已发布
 
-## 🎯 周刊生成流程
+#### 周刊数据库字段：
+- **周刊标题** (title): 周刊标题
+- **期号** (number): 期数
+- **生成日期** (date): 生成时间
+- **状态** (status): 发布状态
 
-1. **数据获取**: 从 Notion 数据库查询本周已归档文章
-2. **智能分类**: 基于关键词匹配和内容分析进行分类
-3. **内容生成**: 使用自然化模板生成人性化内容
-4. **文件保存**: 自动保存为 Markdown 格式
-5. **通知发送**: 生成完成后发送通知（可扩展）
+## 🎯 使用场景
 
-## 🔧 自定义配置
+### 个人内容策展
+- 收集和整理优质文章
+- 智能分类和标签管理
+- 定期生成个人周刊
 
-### 修改调度时间
-在 `weekly_scheduler.py` 中修改：
-```python
-# 每周日上午9点
-schedule.every().sunday.at("09:00").do(job)
+### 团队知识分享
+- 团队内容协作
+- 知识库建设
+- 定期分享最新动态
 
-# 其他选项：
-# schedule.every().sunday.at("21:00").do(job)  # 每周日晚上9点
-# schedule.every().monday.at("08:00").do(job)  # 每周一早上8点
-```
+### 自媒体运营
+- 内容素材管理
+- 自动化内容生成
+- 多平台发布
 
-### 自定义分类关键词
-在 `weekly_generator.py` 中修改 `category_keywords` 字典。
+## 🔄 工作流程
 
-### 添加通知方式
-在 `weekly_scheduler.py` 的 `send_notification` 方法中添加邮件、微信等通知方式。
+1. **内容收集**：在 Notion 数据库中添加文章
+2. **AI 分类**：系统自动分析并分类文章
+3. **状态管理**：将文章标记为"已归档"
+4. **周刊生成**：运行生成器创建周刊内容
+5. **格式转换**：自动转换为 Notion 格式
+6. **一键发布**：发布到指定的 Notion 数据库
 
-## 📊 商业模式
+## 🛠️ 技术栈
 
-### 超级个体周刊订阅
-- **月度订阅**: ¥29/月
-- **年度订阅**: ¥299/年（相当于8.3折）
-- **目标用户**: 产品经理、运营人员、设计师、创业者
-- **价值主张**: 精选优质内容，节省信息筛选时间
+- **Python 3.8+**：核心开发语言
+- **Notion API**：数据库操作
+- **MCP (Model Context Protocol)**：Cursor 集成
+- **正则表达式**：文本解析和格式化
+- **HTML/CSS/JavaScript**：封面设计工具
 
-## 🚨 注意事项
+## 📝 更新日志
 
-1. **敏感信息保护**: Notion API Token 等敏感信息已加入 `.gitignore`
-2. **依赖安装**: 首次使用前请安装所有依赖包
-3. **网络连接**: 需要稳定的网络连接访问 Notion API
-4. **权限配置**: 确保 Notion Integration 有数据库读取权限
-
-## 🔄 更新日志
-
-### v2.0.0 (最新)
-- ✅ 新增定时调度器 `weekly_scheduler.py`
-- ✅ 新增专用查询工具 `notion_query_helper.py`
-- ✅ 支持每周日自动生成周刊
-- ✅ 增加文章预览功能
-- ✅ 优化错误处理和日志记录
-
-### v1.0.0
-- ✅ 基础周刊生成功能
-- ✅ Notion MCP 集成
-- ✅ 公众号封面设计工具
-- ✅ 完整的PRD文档
+### v1.0.0 (2025-05-23)
+- ✅ 初始版本发布
+- ✅ Notion MCP API 集成
+- ✅ 智能文章分类
+- ✅ Markdown 链接支持
+- ✅ 封面设计工具
+- ✅ 完整的周刊生成流程
 
 ## 🤝 贡献指南
 
-欢迎提交 Issue 和 Pull Request 来改进这个项目！
+欢迎提交 Issue 和 Pull Request！
 
-## �� 许可证
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
 
-MIT License 
+## 📄 许可证
+
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
+
+## 🙏 致谢
+
+- [Notion API](https://developers.notion.com/) - 强大的数据库 API
+- [Cursor](https://cursor.sh/) - 优秀的 AI 编程工具
+- [html2canvas](https://html2canvas.hertzen.com/) - 网页截图工具
+
+---
+
+**如果这个项目对你有帮助，请给个 ⭐️ Star 支持一下！** 

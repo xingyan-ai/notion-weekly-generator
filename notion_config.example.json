@@ -1,0 +1,40 @@
+{
+  "notion": {
+    "api_token": "your_notion_api_token_here",
+    "databases": {
+      "main_articles": {
+        "id": "your_main_database_id_here",
+        "name": "文章数据库",
+        "description": "主要的文章收集和管理数据库",
+        "properties": {
+          "标题": "title",
+          "分类（人工）": "multi_select",
+          "重要度": "select",
+          "总结（AI 摘要）": "rich_text",
+          "添加日期": "date",
+          "笔记": "rich_text",
+          "URL": "url",
+          "状态": "select"
+        },
+        "created_date": "2025-05-23",
+        "last_updated": "2025-05-23"
+      },
+      "weekly_publish": {
+        "id": "your_weekly_database_id_here",
+        "name": "周刊发布数据库",
+        "description": "用于发布超级个体周刊的数据库",
+        "properties": {
+          "周刊标题": "title",
+          "期号": "number",
+          "生成日期": "date",
+          "状态": "status"
+        }
+      }
+    },
+    "quick_access": {
+      "default_database": "your_main_database_id_here",
+      "database_alias": "articles"
+    },
+    "publish_history": []
+  }
+} 
