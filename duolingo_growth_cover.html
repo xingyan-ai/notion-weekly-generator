@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多邻国如何重燃用户增长 - 公众号封面</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 引入 html2canvas 用于图片下载 -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    
+    <style>
+        /* 自定义字体 */
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-noto { font-family: 'Noto Sans SC', sans-serif; }
+        
+        /* 自定义渐变背景 */
+        .bg-growth-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 25%, #047857 50%, #065f46 75%, #064e3b 100%);
+        }
+        
+        /* 材料设计阴影 */
+        .material-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .material-shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* 玻璃拟态效果 */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 动画效果 */
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        /* 确保下载时的固定尺寸 */
+        #cover-card {
+            width: 1340px;
+            height: 400px;
+        }
+        
+        /* 响应式容器 */
+        .responsive-container {
+            width: 100%;
+            max-width: 1340px;
+            aspect-ratio: 3.35/1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 font-noto">
+    
+    <!-- 主容器 -->
+    <div class="w-full max-w-6xl">
+        
+        <!-- 响应式外层容器 -->
+        <div class="responsive-container mx-auto">
+            <!-- 封面组合卡片 (3.35:1 比例) -->
+            <div id="cover-card" class="w-full h-full bg-growth-gradient rounded-2xl material-shadow-lg overflow-hidden hover-scale">
+                <div class="h-full flex">
+                    
+                    <!-- 主封面区域 (2.35:1) -->
+                    <div class="relative flex flex-col justify-center px-8 lg:px-12" style="flex: 2.35;">
+                        
+                        <!-- 装饰性背景元素 -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full transform translate-x-16 -translate-y-16"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full transform -translate-x-12 translate-y-12"></div>
+                        
+                        <!-- 主标题区域 -->
+                        <div class="relative z-10">
+                            <!-- 副标题/标签 -->
+                            <div class="inline-block px-4 py-2 bg-white bg-opacity-20 rounded-full text-white text-sm font-medium mb-4 glass-effect">
+                                产品案例分析
+                            </div>
+                            
+                            <!-- 主标题 -->
+                            <h1 class="text-white font-bold leading-tight mb-4">
+                                <span class="block text-2xl lg:text-4xl xl:text-5xl font-inter">多邻国如何</span>
+                                <span class="block text-3xl lg:text-5xl xl:text-6xl font-inter bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">重燃用户增长</span>
+                            </h1>
+                            
+                            <!-- 装饰线条 -->
+                            <div class="w-20 h-1 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-full"></div>
+                            
+                            <!-- 底部标签 -->
+                            <div class="mt-6 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-white bg-opacity-15 rounded-full text-white text-xs font-medium">用户留存</span>
+                                <span class="px-3 py-1 bg-white bg-opacity-15 rounded-full text-white text-xs font-medium">产品策略</span>
+                                <span class="px-3 py-1 bg-white bg-opacity-15 rounded-full text-white text-xs font-medium">增长黑客</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 朋友圈封面区域 (1:1) - 优化尺寸和布局 -->
+                    <div class="relative flex flex-col justify-center items-center text-center p-8" style="flex: 1;">
+                        
+                        <!-- 背景装饰 -->
+                        <div class="absolute inset-0 bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm"></div>
+                        <div class="absolute top-6 right-6 w-20 h-20 border-2 border-white border-opacity-30 rounded-full"></div>
+                        <div class="absolute bottom-6 left-6 w-16 h-16 border-2 border-white border-opacity-30 rounded-full"></div>
+                        
+                        <!-- 朋友圈封面文字 - 增大字体和间距 -->
+                        <div class="relative z-10">
+                            <div class="text-white font-bold leading-none">
+                                <div class="text-5xl lg:text-6xl xl:text-7xl mb-4">产品</div>
+                                <div class="text-5xl lg:text-6xl xl:text-7xl">增长</div>
+                            </div>
+                            
+                            <!-- 装饰图标 -->
+                            <div class="mt-6 flex justify-center">
+                                <div class="w-12 h-1.5 bg-yellow-300 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 下载按钮 -->
+        <div class="mt-8 text-center">
+            <button 
+                id="download-btn" 
+                class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg material-shadow hover-scale transition-all duration-300 font-inter"
+            >
+                📥 下载封面图片
+            </button>
+        </div>
+        
+        <!-- 使用说明 -->
+        <div class="mt-6 text-center text-gray-600 text-sm">
+            <p>💡 左侧为公众号主封面，右侧为朋友圈分享封面</p>
+            <p>🎨 采用现代材料设计风格，绿色系体现增长主题</p>
+        </div>
+    </div>
+
+    <script>
+        // 下载图片功能 - 修复版本
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const button = this;
+            const originalText = button.textContent;
+            
+            // 显示加载状态
+            button.textContent = '🔄 正在生成图片...';
+            button.disabled = true;
+            
+            // 获取要截图的元素
+            const element = document.getElementById('cover-card');
+            
+            // 确保元素可见并等待字体加载
+            setTimeout(() => {
+                // 使用 html2canvas 生成图片
+                html2canvas(element, {
+                    scale: 3, // 提高图片质量到3倍
+                    backgroundColor: null, // 透明背景
+                    useCORS: true, // 允许跨域
+                    allowTaint: false, // 防止污染
+                    width: 1340, // 固定宽度
+                    height: 400, // 固定高度
+                    scrollX: 0,
+                    scrollY: 0,
+                    windowWidth: 1340,
+                    windowHeight: 400
+                }).then(function(canvas) {
+                    try {
+                        // 创建下载链接
+                        const link = document.createElement('a');
+                        link.download = '多邻国用户增长封面.png';
+                        link.href = canvas.toDataURL('image/png', 1.0);
+                        
+                        // 触发下载
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        
+                        // 恢复按钮状态
+                        button.textContent = '✅ 下载完成！';
+                        button.disabled = false;
+                        
+                        // 2秒后恢复原始文本
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                        }, 2000);
+                        
+                    } catch (error) {
+                        console.error('下载失败:', error);
+                        button.textContent = '❌ 下载失败，请重试';
+                        button.disabled = false;
+                        
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                        }, 2000);
+                    }
+                    
+                }).catch(function(error) {
+                    console.error('生成图片失败:', error);
+                    button.textContent = '❌ 生成失败，请重试';
+                    button.disabled = false;
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 2000);
+                });
+            }, 500); // 等待500ms确保渲染完成
+        });
+        
+        // 页面加载完成后的提示
+        window.addEventListener('load', function() {
+            console.log('🎨 封面设计已加载完成！');
+            console.log('📱 左侧为公众号主封面 (2.35:1)');
+            console.log('📱 右侧为朋友圈封面 (1:1)');
+            console.log('💾 点击下载按钮可保存为图片');
+            
+            // 预加载字体
+            document.fonts.ready.then(() => {
+                console.log('🔤 字体加载完成');
+            });
+        });
+    </script>
+</body>
+</html> 
